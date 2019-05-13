@@ -1,0 +1,4 @@
+class nvector {
+	nvector(){}
+	~nvector(){}
+};
