@@ -13,15 +13,16 @@ g++ -std=c++11 -isystem ${GTEST_DIR}/include -I${GTEST_DIR} -pthread -c ${GTEST_
 
 and then type
 ```
-ar -rv libgtest.a gtest-all.o
+mkdir bin
+ar -rv bin/libgtest.a gtest-all.o
 ```
 
-expected result is a libgtest.a file at working dir
+expected result is a libgtest.a file at bin dir
 
 4. build our tests
 type
 ```
-g++ -std=c++11 -isystem ${GTEST_DIR}/include -pthread main.cpp nvector_tests.cpp libgtest.a
+g++ -std=c++11 -isystem ${GTEST_DIR}/include -pthread -Isrc/ src/main.cpp tests/nvector_tests.cpp bin/libgtest.a
 ```
 
 expected a.out file as result

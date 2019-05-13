@@ -1,4 +1,4 @@
-#include "nvector.hpp"
+#include "../src/nvector.hpp"
 #include <gtest/gtest.h>
 
 TEST(base_test, chacking_test)
