@@ -8,8 +8,6 @@ set (VERSION_MINOR 0)
 set (CMAKE_CXX_STANDARD 11)
 find_package (Threads)
 
-
-
 # add the binary tree to the search path for include files
 # so that we will find TutorialConfig.h
 include_directories("${CMAKE_SOURCE_DIR}")
