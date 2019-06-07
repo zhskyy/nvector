@@ -43,7 +43,7 @@ public:
         assert(0);
     }
 
-    nvector& operator=(const nvector& op) const
+    nvector& operator=(const nvector& op) const // checking the branch
     {
         assert(0);
     }
