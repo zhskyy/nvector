@@ -45,7 +45,30 @@ public:
 
     nvector& operator=(const nvector& op) const // checking the branch
     {
-        assert(0);
+        if(this == &op) return *this;
+
+        if(op.size <= __size)
+        {
+            for(int index = 0; index < op.__size; index++ )
+            {
+                __data[index] = op.__data[index];
+            }
+            return *this;
+        }
+
+        else
+        {
+            Type* p = new Type[op.__size];
+
+            for(int index = 0; index < op.__size; index++)
+            {
+                p.__data[index] = op.__data[index];
+            }
+
+            delete[] __data;
+            __size = p.__size;
+            __data = *p.__data;
+        }
     }
 
     Type operator[](const long i) const
@@ -64,7 +87,7 @@ public:
     {
         if(i < __size )
         {
-            return &(__data+i);
+            return &(__data[i]);
         }
         else
         {
@@ -79,7 +102,15 @@ public:
 
     void push_back(const Type& element)
     {
-        assert(0);
+        Type* p = new Type[__size + 4];
+        for(int index = 0; index < p.__size; index++)
+        {
+            p.__data[index] = __data[index];
+        }
+        p.[__size + 1] = element;
+        delete [] __data;
+        __data = p.__data;
+        __size = p.size;
     }
 
 private:
