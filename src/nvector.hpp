@@ -43,11 +43,11 @@ public:
         assert(0);
     }
 
-    nvector& operator=(const nvector& op) const // checking the branch
+    const nvector& operator=(const nvector& op) const // checking the branch
     {
         if(this == &op) return *this;
 
-        if(op.size <= __size)
+        if(op.__size <= __size)
         {
             for(int index = 0; index < op.__size; index++ )
             {
@@ -56,19 +56,19 @@ public:
             return *this;
         }
 
-        else
-        {
-            Type* p = new Type[op.__size];
+//        else
+//        {
+//            Type* p = new Type[op.__size];
 
-            for(int index = 0; index < op.__size; index++)
-            {
-                p.__data[index] = op.__data[index];
-            }
+//            for(int index = 0; index < op.__size; index++)
+//            {
+//                p.__data[index] = op.__data[index];
+//            }
 
-            delete[] __data;
-            __size = p.__size;
-            __data = *p.__data;
-        }
+//            delete[] __data;
+//            __size = p.__size;
+//            __data = *p.__data;
+//        }
     }
 
     Type operator[](const long i) const
@@ -102,16 +102,18 @@ public:
 
     void push_back(const Type& element)
     {
-        Type* p = new Type[__size + 4];
-        for(int index = 0; index < p.__size; index++)
-        {
-            p.__data[index] = __data[index];
-        }
-        p.[__size + 1] = element;
-        delete [] __data;
-        __data = p.__data;
-        __size = p.size;
+//        Type* p = new Type[__size + 4];
+//        for(int index = 0; index < p.__size; index++)
+//        {
+//            p.__data[index] = __data[index];
+//        }
+//        p.[__size + 1] = element;
+//        delete [] __data;
+//        __data = p.__data;
+//        __size = p.size;
     }
+
+    int size() const { return __size; }
 
 private:
     Type* __data;
